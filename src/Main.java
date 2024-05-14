@@ -47,21 +47,16 @@ public class Main {
         studentMap.put(9, "中田さん");
         studentMap.put(10, "山本さん");
         //キー1〜１０を繰り返し処理して、値を出力する
-        for (int i = 1; i <= 10; i++) {
+        int i = 0;
+        while (i <= 10) {
             System.out.println(studentMap.get(i));
+            i++;
         }
-        //例外を発生させる
-        try {
-            System.out.println(studentMap.get(11));
-        } catch (Exception e) {
-            System.out.println("例外が発生しました");
+        //もし10以上の数値をgetしたら例外を発生させる
+        if (studentMap.get(i) == null) {
+            throw new IllegalArgumentException("10以上の数値を入力しないでください");
         }
-        //getメソッドで数字以外のキーを入力したら例外NumberFormatExceptionをthrowでなげる
-        try {
-            System.out.println(studentMap.get("a"));
-        } catch (NumberFormatException e) {
-            System.out.println("数字以外のキーが入力されました");
-        }
+
 
 
     }
